@@ -1,0 +1,20 @@
+{
+  "name": "seadata",
+  "version": "1.0.0",
+  "description": "Home assignment ",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "server": "nodemon server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@elastic/elasticsearch": "^7.3.0",
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.2"
+  }
+}
