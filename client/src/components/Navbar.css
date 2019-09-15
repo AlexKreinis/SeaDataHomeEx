@@ -1,0 +1,57 @@
+nav {
+  height: 10vh;
+  background: #3498db;
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+  width: 50%;
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: auto;
+}
+.nav-links li {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .line {
+    width: 30px;
+    height: 3px;
+    background: white;
+    margin: 5px;
+  }
+  nav {
+    position: relative;
+  }
+  .hamburger {
+    position: absolute;
+    cursor: pointer;
+    right: 5%;
+    top: 50%;
+    transform: translate(-5%, -50%);
+    z-index: 1000;
+  }
+  .nav-links {
+    position: fixed;
+    background: #3498db;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    clip-path: circle(100px at 90% -10%);
+    -webkit-clip-path: circle(100px at 90% -10%);
+    transition: all 0.5s ease-out;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .openlinks {
+    clip-path: circle(1050px at 90% -10%);
+    -webkit-clip-path: circle(1050px at 90% -10%);
+    pointer-events: all;
+    z-index: 1;
+  }
+}

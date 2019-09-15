@@ -4,6 +4,32 @@ const { Client } = require('@elastic/elasticsearch');
 const client = new Client({ node: 'http://35.188.79.184:9200/' });
 var bcrypt = require('bcryptjs');
 
+router.put('/update/:id', async (req, res) => {
+  try {
+    console.log('Entered updateuser', req.params.id);
+    const salt = await bcrypt.genSalt(10);
+    let password = await bcrypt.hash(req.body.password, salt);
+
+    const data = {
+      email: req.body.email,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      phone: req.body.phone,
+      password
+    };
+
+    await client.update({
+      index: 'users',
+      id: req.params.id,
+      body: data
+    });
+    res.json({ msg: 'Updated Successfully' });
+  } catch (err) {
+    // res.status(500).send(err.message);
+    console.log(err);
+  }
+});
+
 router.get('/finduser/:id', async (req, res) => {
   try {
     let user = await client.get({
