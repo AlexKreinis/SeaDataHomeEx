@@ -18,7 +18,7 @@ router.put('/update/:id', async (req, res) => {
       password
     };
 
-    await client.update({
+    await client.index({
       index: 'users',
       id: req.params.id,
       body: data
